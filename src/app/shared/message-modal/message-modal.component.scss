@@ -1,0 +1,13 @@
+div {
+  @apply fixed w-4/5 p-7 z-10 rounded-3xl flex items-center justify-center;
+  top: 7vh;
+  left: 10%;
+}
+
+.success {
+  @apply bg-bgGreen text-green;
+}
+
+.error {
+  @apply bg-bgRed text-red;
+}

@@ -2,3 +2,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-normal break-words min-h-screen relative font-jura;
+    font-kerning: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    @apply text-extra-big;
+  }
+
+  h2 {
+    @apply text-big;
+  }
+
+  h3 {
+    @apply text-medium;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-container mx-8 lg:mx-auto p-14 text-center;
+  }
+
+  .btn {
+    @apply px-3 py-2 border-2 rounded-full mx-1 font-bold text-small leading-none transition duration-200 ease-in;
+  }
+
+  .btn-filled {
+    @apply bg-pink text-white border-pink hover:bg-lightPink hover:border-lightPink disabled:bg-grey disabled:cursor-not-allowed disabled:border-grey;
+  }
+
+  .btn-outlined {
+    @apply bg-transparent text-black border-pink hover:bg-pink hover:text-white;
+  }
+
+  .card {
+    @apply w-card p-9 rounded-3xl m-3 shadow-card;
+  }
+}

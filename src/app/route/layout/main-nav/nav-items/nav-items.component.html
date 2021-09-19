@@ -1,0 +1,12 @@
+<ul>
+  <li *ngIf="!(isAuthenticated$ | async)">
+    <a routerLink="/auth" routerLinkActive="active-link">Authenticate</a>
+  </li>
+  <ng-container *ngIf="isAuthenticated$ | async">
+    <li>Profile</li>
+    <!-- <li> -->
+    <!-- <a routerLink="/timeline" routerLinkActive="active-link">Timeline</a> -->
+    <!-- </li> -->
+    <li (click)="onLogoutClick()">Logout</li>
+  </ng-container>
+</ul>

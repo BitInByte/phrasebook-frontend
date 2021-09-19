@@ -1,0 +1,10 @@
+<div
+  *ngIf="messageModalService.hasMessage$ | async as message"
+  @error
+  [ngClass]="{
+    success: !messageModalService.isError,
+    error: messageModalService.isError
+  }"
+>
+  {{ message }}
+</div>

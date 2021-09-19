@@ -1,0 +1,7 @@
+<div *ngIf="sideDrawerService.isShown$ | async" (click)="onClick()" @item>
+  <aside>
+    <nav>
+      <app-nav-items></app-nav-items>
+    </nav>
+  </aside>
+</div>

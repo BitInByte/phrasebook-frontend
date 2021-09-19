@@ -1,0 +1,17 @@
+form {
+  @apply p-3 flex flex-col items-center;
+  & textarea {
+    @apply w-96 h-20 border-0 border-b-2 border-solid border-pink resize-none p-1;
+  }
+  & p {
+    @apply w-96 text-right;
+  }
+}
+
+.user-info {
+  @apply w-full flex items-center;
+
+  & div {
+    @apply px-1 mr-auto w-80;
+  }
+}

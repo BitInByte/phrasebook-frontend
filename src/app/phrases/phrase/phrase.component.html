@@ -1,0 +1,28 @@
+<div class="card">
+  <p>{{ phrase.phrase }}</p>
+  <button class="author">
+    By: <span>{{ phrase.author }}</span>
+  </button>
+  <div class="actions">
+    <button
+      class="like"
+      [ngClass]="{ 'is-liked': phrase.isLiked }"
+      (click)="onLikeHandler()"
+    >
+      <span>
+        <fa-icon [icon]="faThumbsUp"></fa-icon>
+      </span>
+      Like
+    </button>
+    <button
+      class="share"
+      [ngClass]="{ 'is-shared': phrase.isShared }"
+      (click)="onShareHandler()"
+    >
+      <span>
+        <fa-icon [icon]="faShareSquare"></fa-icon>
+      </span>
+      Share
+    </button>
+  </div>
+</div>

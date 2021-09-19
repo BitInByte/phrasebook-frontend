@@ -1,0 +1,13 @@
+:host {
+  min-height: inherit;
+}
+
+.home-content {
+  @apply flex flex-col mx-auto lg:flex-row lg:w-container w-full;
+  // min-height: fill-available;
+  min-height: inherit;
+}
+
+.content-wrapper {
+  @apply w-full lg:w-1/2 px-4 mt-5 text-center lg:text-left;
+}

@@ -1,0 +1,41 @@
+.card {
+  & p {
+    @apply font-alice text-medium relative top-0 left-0 text-left z-10;
+    &::before {
+      @apply absolute block top-11 -left-11 italic -z-10 text-whiteLight text-beginPhrase leading-null;
+      // line-height: 0;
+      // font-size: 10rem;
+      content: '"';
+    }
+  }
+
+  & .author {
+    @apply w-full p-4 text-right cursor-pointer transition duration-300 ease-in hover:text-pink;
+    & span {
+      @apply italic;
+    }
+  }
+
+  & .actions {
+    @apply w-full flex text-xl mt-3;
+    & button {
+      @apply flex-1 text-center transition duration-300 ease-in cursor-pointer;
+      & span {
+        @apply mr-1;
+      }
+    }
+    & .like {
+      @apply hover:text-red hover:font-bold;
+    }
+
+    & .share {
+      @apply hover:text-green hover:font-bold;
+    }
+    & .is-liked {
+      @apply text-red font-bold;
+    }
+    & .is-shared {
+      @apply text-green font-bold;
+    }
+  }
+}

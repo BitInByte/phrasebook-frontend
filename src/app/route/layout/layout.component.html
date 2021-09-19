@@ -1,0 +1,15 @@
+<header>
+  <p><a routerLink="/">Phrasebook</a></p>
+  <app-search-bar></app-search-bar>
+  <div class="flex items-center">
+    <app-burger-button></app-burger-button>
+    <app-main-nav class="hidden md:block"></app-main-nav>
+    <div class="user-pin">
+      <a routerLink="/settings"
+        ><p>{{ userInitials$ | async }}</p></a
+      >
+    </div>
+  </div>
+</header>
+<main><ng-content></ng-content></main>
+<footer>Made with <span>♥️ </span> by BitInByte</footer>

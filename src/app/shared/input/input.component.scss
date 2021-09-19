@@ -1,0 +1,35 @@
+div {
+  @apply w-full relative py-3 my-3;
+
+  & label {
+    @apply absolute top-0 left-0 text-greyLight ml-4 opacity-100 transition duration-200 ease-in transform;
+    // transform: translateY(50%);
+  }
+
+  & input {
+    @apply w-full relative top-0 left-0 z-10 py-2 px-3 outline-none mt-1 rounded-2xl border-2 border-solid border-greyLight leading-none text-input focus:border-blue focus:shadow-input;
+    background: none;
+    &:focus + label {
+      @apply -translate-y-2 text-black;
+    }
+  }
+
+  & p {
+    @apply text-center text-red mt-1 py-1;
+  }
+
+  .label-down {
+    @apply translate-y-input;
+  }
+
+  .label-up {
+    @apply -translate-y-2;
+  }
+}
+:host ::ng-deep input {
+  @apply w-full relative top-0 left-0 z-10 py-2 px-3 outline-none mt-1 rounded-2xl border-2 border-solid border-greyLight leading-none text-input focus:border-blue focus:shadow-input;
+  background: none;
+  &:focus + label {
+    @apply -translate-y-2 text-black #{!important};
+  }
+}

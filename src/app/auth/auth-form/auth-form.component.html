@@ -1,0 +1,196 @@
+<div
+  class="w-full mx-auto md:w-3/4 lg:w-1/2"
+  [ngClass]="{
+    'full-width': isMain
+  }"
+  [@item]="isLogin"
+>
+  <h2 class="text-left">{{ title }}</h2>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <!-- <app-input -->
+    <!-- *ngIf="!isLogin" -->
+    <!-- label="First Name" -->
+    <!-- [value]="firstName.value" -->
+    <!-- [errorMsg]=" -->
+    <!-- firstName.errors && firstName.touched -->
+    <!-- ? 'First name field is required!' -->
+    <!-- : undefined -->
+    <!-- " -->
+    <!-- > -->
+    <!-- <input -->
+    <!-- name="firstName" -->
+    <!-- ngModel -->
+    <!-- type="text" -->
+    <!-- #firstName="ngModel" -->
+    <!-- required -->
+    <!-- /> -->
+    <!-- </app-input> -->
+    <!-- <app-input -->
+    <!-- *ngIf="!isLogin" -->
+    <!-- label="Last Name" -->
+    <!-- [value]="lastName.value" -->
+    <!-- [errorMsg]=" -->
+    <!-- lastName.errors && lastName.touched -->
+    <!-- ? 'Last name field is required!' -->
+    <!-- : undefined -->
+    <!-- " -->
+    <!-- > -->
+    <!-- <input name="lastName" ngModel type="text" #lastName="ngModel" required /> -->
+    <!-- </app-input> -->
+    <!-- <app-input -->
+    <!-- label="Email" -->
+    <!-- [value]="email.value" -->
+    <!-- [errorMsg]=" -->
+    <!-- email.errors && email.touched ? 'Email field is required!' : undefined -->
+    <!-- " -->
+    <!-- > -->
+    <!-- <input name="email" ngModel type="email" #email="ngModel" required /> -->
+    <!-- </app-input> -->
+    <!-- <app-input -->
+    <!-- label="Password" -->
+    <!-- [value]="password.value" -->
+    <!-- [errorMsg]=" -->
+    <!-- password.errors && password.touched -->
+    <!-- ? 'Password field is required!' -->
+    <!-- : undefined -->
+    <!-- " -->
+    <!-- > -->
+    <!-- <input -->
+    <!-- name="password" -->
+    <!-- ngModel -->
+    <!-- type="password" -->
+    <!-- #password="ngModel" -->
+    <!-- required -->
+    <!-- /> -->
+    <!-- </app-input> -->
+    <!-- <app-input -->
+    <!-- *ngIf="!isLogin" -->
+    <!-- label="Repeat password" -->
+    <!-- [value]="repeatPassword.value" -->
+    <!-- [errorMsg]=" -->
+    <!-- repeatPassword.errors && repeatPassword.touched -->
+    <!-- ? 'Repeat you password!' -->
+    <!-- : undefined -->
+    <!-- " -->
+    <!-- > -->
+    <!-- <input -->
+    <!-- name="repeatPassword" -->
+    <!-- ngModel -->
+    <!-- type="password" -->
+    <!-- #repeatPassword="ngModel" -->
+    <!-- required -->
+    <!-- /> -->
+    <!-- </app-input> -->
+    <app-input
+      *ngIf="isFormFull"
+      name="firstName"
+      ngModel
+      type="text"
+      label="First Name"
+      #firstName="ngModel"
+      [errorMsg]="
+        firstName.errors && firstName.touched
+          ? 'You should enter a valid name'
+          : undefined
+      "
+      required
+    ></app-input>
+    <app-input
+      *ngIf="isFormFull"
+      name="lastName"
+      ngModel
+      type="text"
+      label="Last Name"
+      #lastName="ngModel"
+      [errorMsg]="
+        lastName.errors && lastName.touched
+          ? 'You should enter a valid name!'
+          : undefined
+      "
+      required
+    ></app-input>
+    <app-input
+      name="email"
+      ngModel
+      type="email"
+      label="Email"
+      #email="ngModel"
+      required
+      email
+      [errorMsg]="
+        email.errors && email.touched
+          ? 'You should enter a valid email!'
+          : undefined
+      "
+    ></app-input>
+    <app-input
+      *ngIf="isSettings"
+      name="oldPassword"
+      ngModel
+      type="password"
+      label="Old Password"
+      #oldPassword="ngModel"
+      required
+      minlength="8"
+      [errorMsg]="
+        oldPassword.errors && oldPassword.touched
+          ? 'The password should have at least 8 characters!'
+          : undefined
+      "
+    ></app-input>
+    <app-input
+      name="password"
+      ngModel
+      type="password"
+      label="Password"
+      #password="ngModel"
+      required
+      minlength="8"
+      [errorMsg]="
+        password.errors && password.touched
+          ? 'The password should have at least 8 characters!'
+          : undefined
+      "
+    ></app-input>
+    <app-input
+      *ngIf="isFormFull"
+      name="repeatPassword"
+      ngModel
+      type="password"
+      label="Repeat Password"
+      #repeatPassword="ngModel"
+      required
+      minlength="8"
+      [errorMsg]="
+        repeatPassword.errors && repeatPassword.touched
+          ? 'The password should have at least 8 characters!'
+          : undefined
+      "
+    ></app-input>
+    <div>
+      <app-spinner></app-spinner>
+    </div>
+    <div *ngIf="!(spinnerService.isLoading$ | async)" class="text-left">
+      <button type="submit" class="btn btn-filled" [disabled]="!isFormValid">
+        Submit
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-outlined"
+        *ngIf="isMain && !isSettings"
+        routerLink="/auth"
+      >
+        Login
+      </button>
+      <button
+        type="button"
+        class="btn btn-outlined"
+        (click)="onClick()"
+        *ngIf="!isMain && !isSettings"
+      >
+        {{ !isLogin ? "Login" : "Register" }}
+      </button>
+    </div>
+  </form>
+</div>

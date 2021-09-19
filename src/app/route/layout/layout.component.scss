@@ -1,0 +1,26 @@
+header {
+  @apply w-full bg-pink p-4 flex justify-between items-center text-center rounded-b-2xl shadow-header;
+  p {
+    @apply text-3xl font-fredoka text-yellow uppercase m-1 font-bold;
+  }
+}
+
+footer {
+  @apply w-full h-20 flex justify-center items-center p-7 bg-black rounded-t-2xl text-white absolute bottom-0;
+}
+
+main {
+  @apply pb-20;
+  min-height: calc(100vh - 4.75rem - 5rem);
+
+  // Bug on chrome and firefox
+  // height: 1px;
+}
+
+.user-pin {
+  @apply p-2 ml-2 text-pink bg-yellow rounded-full transition duration-200 ease-in hover:bg-blue cursor-pointer;
+
+  & p {
+    @apply uppercase font-bold text-pink text-base;
+  }
+}
